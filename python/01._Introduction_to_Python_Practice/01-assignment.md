@@ -113,10 +113,7 @@ student_marks = 85
 Now it is clear that the value represents a student's marks.
 However, short names are not always wrong. They can be useful when their meaning is obvious and their scope is small.
 
-For example:
-for i in range(5):
-    print(i)
-Here, i is commonly used as a loop variable, so using a short name is reasonable.
+
 
 ___________________________________________________________________________________________________________________________
 
