@@ -227,3 +227,331 @@ c) Give one example of a Non-Primitive data type and explain why it is considere
 
 
 
+
+# Part D — Hoisting
+
+## 11. Predict the Hoisting Behavior
+
+```javascript
+console.log(a); // undefined
+console.log(b); // ReferenceError
+console.log(c); // ReferenceError
+
+var a = 10;
+let b = 20;
+const c = 30;
+```
+
+### Explanation:
+
+* `var` is hoisted and gets the value `undefined`.
+* `let` and `const` are hoisted but cannot be accessed before their declaration.
+* Therefore, `b` and `c` cause `ReferenceError`.
+
+---
+
+## 12. Fix the Hoisting Errors
+
+```javascript
+var x = "Hello";
+let y = "World";
+const z = "!";
+
+console.log(x);
+console.log(y);
+console.log(z);
+
+console.log(x + " " + y + z);
+```
+
+### Explanation:
+
+The variables are declared before they are used, so there are no hoisting errors.
+
+---
+
+# Part E — Basic Identification
+
+## 1. Classify the Types
+
+```javascript
+let whole = 10;
+let decimal = 10.5;
+let text = "Hello";
+let value = true;
+
+console.log(whole, typeof whole);
+console.log(decimal, typeof decimal);
+console.log(text, typeof text);
+console.log(value, typeof value);
+```
+
+### Explanation:
+
+* `10` → number
+* `10.5` → number
+* `"Hello"` → string
+* `true` → boolean
+
+---
+
+## 2. Undefined vs Null
+
+```javascript
+let a;
+let b = null;
+
+console.log(a, typeof a);
+console.log(b, typeof b);
+```
+
+### Explanation:
+
+* `a` is `undefined` because no value was assigned.
+* `b` is `null` because we intentionally assigned an empty value.
+* Note: `typeof null` returns `"object"` in JavaScript.
+
+---
+
+## 3. Number Special Values
+
+```javascript
+let positiveInfinity = Infinity;
+let negativeInfinity = -Infinity;
+let notANumber = NaN;
+let scientific = 2.5e3;
+let largeNumber = 1_000_000;
+
+console.log(positiveInfinity, typeof positiveInfinity);
+console.log(negativeInfinity, typeof negativeInfinity);
+console.log(notANumber, typeof notANumber);
+console.log(scientific, typeof scientific);
+console.log(largeNumber, typeof largeNumber);
+```
+
+### Explanation:
+
+All of these are JavaScript `number` values.
+
+* `Infinity` → positive infinity
+* `-Infinity` → negative infinity
+* `NaN` → Not-a-Number
+* `2.5e3` → 2500
+* `1_000_000` → 1000000
+
+---
+
+## 4. String Styles
+
+```javascript
+let single = 'Hello';
+let double = "World";
+
+let name = "John";
+let template = `Hello ${name}`;
+
+console.log(single);
+console.log(double);
+console.log(template);
+```
+
+### Explanation:
+
+JavaScript supports single quotes, double quotes, and backticks. Template literals can include variables using `${}`.
+
+---
+
+# Part F — Advanced Primitive Types
+
+## 5. Symbol Uniqueness
+
+```javascript
+let first = Symbol("id");
+let second = Symbol("id");
+
+console.log(first === second); // false
+
+let object = {};
+
+object[first] = "First Value";
+object[second] = "Second Value";
+
+console.log(object[first]);
+console.log(object[second]);
+```
+
+### Explanation:
+
+Both Symbols have the same description, but every Symbol is unique. Therefore, `first === second` is `false`.
+
+---
+
+## 6. BigInt Precision
+
+```javascript
+let num = 9007199254740991;
+
+console.log(num + 1);
+console.log(num + 2);
+console.log(num + 3);
+
+let big = 9007199254740991n;
+
+console.log(big + 1n);
+console.log(big + 2n);
+console.log(big + 3n);
+```
+
+### Explanation:
+
+`Number` has a maximum safe integer of `9007199254740991`. Beyond this, exact precision cannot always be guaranteed.
+
+`BigInt` is used for very large integers and keeps exact precision.
+
+---
+
+## 7. Choose the Correct Type
+
+### A unique identifier
+
+```javascript
+let id = Symbol("id");
+```
+
+**Type:** `Symbol`
+
+### A very large exact integer
+
+```javascript
+let bigNumber = 12345678901234567890n;
+```
+
+**Type:** `BigInt`
+
+### A declared variable without a value
+
+```javascript
+let value;
+```
+
+**Value:** `undefined`
+
+### An intentional empty value
+
+```javascript
+let empty = null;
+```
+
+**Value:** `null`
+
+---
+
+# Part G — Prediction & Fixing
+
+## 8. Predict the Output
+
+```javascript
+let a;
+let b = null;
+let c = 42;
+let d = "Hello";
+let e = true;
+let f = Symbol("key");
+let g = 123n;
+
+console.log(typeof a, a); // undefined undefined
+console.log(typeof b, b); // object null
+console.log(typeof c, c); // number 42
+console.log(typeof d, d); // string Hello
+console.log(typeof e, e); // boolean true
+console.log(typeof f, f); // symbol Symbol(key)
+console.log(typeof g, g); // bigint 123n
+```
+
+### Explanation:
+
+`typeof` tells us the data type of each value.
+
+* `a` → undefined
+* `b` → object (special behavior of `null`)
+* `c` → number
+* `d` → string
+* `e` → boolean
+* `f` → symbol
+* `g` → bigint
+
+---
+
+## 9. Fix the Code
+
+```javascript
+let num = 10;
+let text = "Hello";
+let flag = true;
+let empty;
+let nothing = null;
+let unique = Symbol("id");
+let big = 9007199254740991n;
+
+console.log(num, text, flag, empty, nothing, unique, big);
+```
+
+### Explanation:
+
+The original code had several errors:
+
+* `Hello` needed quotes because it is a string.
+* `True` should be lowercase `true`.
+* `Null` should be lowercase `null`.
+* `symbol()` should be `Symbol()`.
+* `9007199254740991n` is written as BigInt using `n`.
+
+---
+
+## 10. Primitive vs Non-Primitive
+
+### a) Main difference
+
+**Primitive data types** store a single basic value.
+
+**Non-primitive data types** can store collections of values or more complex data.
+
+Example:
+
+```javascript
+let number = 10;        // Primitive
+
+let numbers = [1, 2, 3]; // Non-Primitive
+```
+
+---
+
+### b) Why are they called Primitive?
+
+Numbers, Strings, Booleans, Undefined, Null, Symbols, and BigInts are called primitive because they represent basic, single values and are not objects.
+
+Example:
+
+```javascript
+let age = 18;
+let name = "John";
+let passed = true;
+```
+
+---
+
+### c) Example of a Non-Primitive Type
+
+```javascript
+let person = {
+    name: "John",
+    age: 20
+};
+```
+
+**Explanation:**
+`person` is an object, which is non-primitive because it can contain multiple related values.
+
+
+
+
