@@ -36,7 +36,7 @@ Write a program where `var`, `let`, and `const` variables are declared inside an
 Declare a variable named `user` using `var` and declare it again with a different value. Then perform the same experiment using `let`. Observe what happens and identify which declaration allows re-declaration.
 
 **8. Test Re-assignment**
-Create three variables using `var`, `let`, and `const`. Assign an initial value to each. Try to change the value of all three variables. Observe which variables allow re-assignment and which one produces an error.
+Create 3 variable using `var`, `let`, and `const`. Assign an initial value to each. Try to change the value of all three variables. Observe which variables allow re-assignment and which one produces an error.
 
 ---
 
@@ -221,8 +221,9 @@ c) Give one example of a Non-Primitive data type and explain why it is considere
 <img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/fbe44b69-2625-43fb-af37-22bd1bfa1a48" />
 <img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/b42b49ba-a78a-41d1-b386-6bfa0d525a23" />
 <img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/8287912a-99e5-48f8-b9a7-f94e8b04cd74" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/fdd502e0-24cb-45ae-bbcf-146ed3f36780" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/e89aa3ec-7a37-44e5-9fa2-eacca6d77ac4" />
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/7c3633d9-204c-4658-9301-f782472b256d" />
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/ae149266-3665-41f6-8237-a6ebb909d697" />
+
 
 
 
