@@ -217,12 +217,19 @@ b) Why are Numbers, Strings, Booleans, Undefined, Null, Symbol, and BigInt calle
 c) Give one example of a Non-Primitive data type and explain why it is considered Non-Primitive.
 
 
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/5d09c28f-7457-4c0f-8210-38d5f0c0d3ef" />
 
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/fbe44b69-2625-43fb-af37-22bd1bfa1a48" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/b42b49ba-a78a-41d1-b386-6bfa0d525a23" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/8287912a-99e5-48f8-b9a7-f94e8b04cd74" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/7c3633d9-204c-4658-9301-f782472b256d" />
-<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/ae149266-3665-41f6-8237-a6ebb909d697" />
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/406670ce-2696-4a87-8e98-9ad2fad81d4b" />
+
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/59e6004d-5414-4faa-84ad-9fb63f2ad0b4" />
+
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/3136e592-08f1-4ec4-8573-8aeef40253b3" />
+
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/a552dc6d-d65a-416d-9ce5-0dfe7807fcb2" />
+
+
+
+
 
 
 
