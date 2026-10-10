@@ -94,12 +94,15 @@
 //It returns true.
 
 //2
+
 //Both return true.
 
 //3
+
 //The output is true and true
 
 //4
+
 //The output is true and true.
 
 //5
