@@ -1,7 +1,11 @@
 //Part G]: typeof Operator
+
 //===========================================
+
 //Part a:
+
 //===========================================
+
 //1.Declare a variable name = "Rahul" and print its type using typeof.
 let name="Shreya";
 console.log(typeof(name));
@@ -21,9 +25,13 @@ console.log(typeof(city));
 //5.Print the type of the value null.
 let result=null;
 console.log(typeof(result));
+
 //====================================================
+
 //part b
+
 //====================================================
+
 //6.Predict the output:
 console.log(typeof 42);
 console.log(typeof "Hello");
@@ -84,12 +92,19 @@ console.log(typeof x);
 console.log(typeof NaN === "number");
 console.log(typeof Infinity === "number");
 console.log(typeof (1 / 0));
+
 //==========================================================================================================================================================================
+
 //==========================================================================================================================================================================
+
 //Part H]: Type Coercion
+
 //=================================================
+
 //Part a:
+
 //=================================================
+
 //1.Convert the string "25" into a number using Number() and add 10 to it. Print the result.
 let num="25";
 let total=Number(num)+10;
@@ -114,9 +129,13 @@ console.log(txt);
 let number="50";
 let number2=+(50)*2;
 console.log(number2)
+
 //================================================
+
 //Part b:
+
 //================================================
+
 //6.Predict the output:
 console.log("10" - 5);
 console.log("10" + 5);
@@ -151,9 +170,13 @@ console.log(String(true));
 console.log(String(null));
 console.log(String(undefined));
 console.log(100 + "");
+
 //===============================================
+
 //Part c:
+
 //===============================================
+
 //11.Predict the output:
 console.log("5" + 3 + 2);
 console.log(5 + 3 + "2");
