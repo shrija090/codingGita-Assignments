@@ -1,1 +1,0 @@
-// "25" + 10 gives "2510" because when + has a string operand, JavaScript performs string concatenation instead of numerical addition.
