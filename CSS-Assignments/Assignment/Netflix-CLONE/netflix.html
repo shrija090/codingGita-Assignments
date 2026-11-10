@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #141414;
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .navbar-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 68px;
+      padding: 0 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 35px;
+    }
+
+    .logo {
+      height: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #e5e5e5;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links .active {
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .profile-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
+    }
+
+    .arrow {
+      width: 12px;
+      height: 12px;
+    }
+
+    .banner-section {
+      position: relative;
+      width: 100%;
+      height: 810px;
+      background-image: url('assets/Title-Image.png');
+      background-size: cover;
+      background-position: center top;
+      overflow: hidden;
+    }
+
+    .banner-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(20, 20, 20, 0.4) 0%,
+        rgba(20, 20, 20, 0) 25%,
+        rgba(20, 20, 20, 0) 50%,
+        rgba(20, 20, 20, 0.8) 85%,
+        #141414 100%
+      );
+    }
+
+    .banner-content {
+      position: absolute;
+      top: 358px;
+      left: 65px;
+      z-index: 2;
+    }
+
+    .show-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .n-logo {
+      height: 28px;
+    }
+
+    .show-text {
+      color: #e5e5e5;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 5px;
+    }
+
+    .title {
+      font-size: 82px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: white;
+      margin: 6px 0 16px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+    }
+
+    .play-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .info-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: rgba(109, 109, 110, 0.7);
+      color: white;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .vector-btn {
+      position: absolute;
+      right: 48px;
+      top: 410px;
+      z-index: 2;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .vector-img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .all-sections {
+      position: relative;
+      z-index: 5;
+      margin-top: -109px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-one {
+      padding: 0 65px;
+      margin-bottom: 40px;
+    }
+
+    .section-two {
+      padding: 0 65px;
+      margin-bottom: 74px;
+    }
+
+    .section-three {
+      padding: 0 65px;
+      margin-bottom: 54px;
+    }
+
+    .section-four {
+      padding: 0 65px;
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: bold;
+      color: #e5e5e5;
+      margin-bottom: 18px;
+      letter-spacing: 0.2px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 16px;
+    }
+
+    .card {
+      width: 260px;
+      height: 146px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .rank-section {
+      display: flex;
+      overflow: hidden;
+    }
+
+    .rank-card {
+      display: flex;
+      align-items: flex-end;
+      width: 267px;
+      height: 206px;
+      cursor: pointer;
+    }
+
+    .rank-img {
+      width: 145px;
+      height: 206px;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .poster-img {
+      width: 132px;
+      height: 185px;
+      border-radius: 4px;
+      margin-left: -14px;
+      z-index: 2;
+    }
+
+    .rank-six {
+      width: 145px;
+      height: 206px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .footer-section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 65px 60px;
+      color: #757575;
+      font-size: 13px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 14px;
+      column-gap: 30px;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: #757575;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .service-btn {
+      background: transparent;
+      border: 1px solid #757575;
+      color: #757575;
+      padding: 6px 10px;
+      font-size: 12px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .copyright {
+      font-size: 11px;
+      color: #555555;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar-section">
+    <div class="navbar-left">
+      <img src="assets/NetflixLogoSvg.png" class="logo">
+      <div class="nav-links">
+        <a href="#" class="active">Start</a>
+        <a href="#">Shows</a>
+        <a href="#">Movies</a>
+        <a href="#">New</a>
+        <a href="#">My List</a>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <img src="assets/Search.png" class="icon">
+      <img src="assets/GiftBox.png" class="icon">
+      <img src="assets/NotificationBell.png" class="icon">
+      <div class="profile-section">
+        <img src="assets/ProfileIMG.png" class="profile-img">
+        <img src="assets/DownArrow.png" class="arrow">
+      </div>
+    </div>
+  </div>
+
+  <div class="banner-section">
+    <div class="banner-gradient"></div>
+    <div class="banner-content">
+      <div class="show-tag">
+        <img src="assets/Netflix_Symbol_RGB 1.png" class="n-logo">
+        <span class="show-text">SHOW</span>
+      </div>
+      <h1 class="title">MAID</h1>
+      <div class="buttons">
+        <button class="play-btn">
+          <img src="assets/Play.png" class="btn-icon">
+          Play
+        </button>
+        <button class="info-btn">
+          <img src="assets/Detail.png" class="btn-icon">
+          More info
+        </button>
+      </div>
+    </div>
+    <button class="vector-btn">
+      <img src="assets/Vector.png" class="vector-img">
+    </button>
+  </div>
+
+  <div class="all-sections">
+    <div class="section-one">
+      <h2 class="section-title">See again &gt;</h2>
+      <div class="cards">
+        <img src="assets/section 1.1.png" class="card">
+        <img src="assets/section 1.2.png" class="card">
+        <img src="assets/section 1.3.png" class="card">
+        <img src="assets/section 1.4.png" class="card">
+        <img src="assets/section 1.5.png" class="card">
+      </div>
+    </div>
+
+    <div class="section-two">
+      <h2 class="section-title">Top 10 in your country &gt;</h2>
+      <div class="rank-section">
+        <div class="rank-card rank-one">
+          <img src="assets/Rank - 01.png" class="rank-img">
+          <img src="assets/section 2.1.png" class="poster-img">
+        </div>
+        <div class="rank-card rank-two">
+          <img src="assets/Rank - 02.png" class="rank-img">
+          <img src="assets/section 2.2.png" class="poster-img">
+        </div>
+        <div class="rank-card rank-three">
+          <img src="assets/Rank - 03.png" class="rank-img">
+          <img src="assets/section 2.3.png" class="poster-img">
+        </div>
+        <div class="rank-card rank-four">
+          <img src="assets/Rank - 04.png" class="rank-img">
+          <img src="assets/section 2.4.png" class="poster-img">
+        </div>
+        <div class="rank-card rank-five">
+          <img src="assets/Rank - 05.png" class="rank-img">
+          <img src="assets/section 2.5.png" class="poster-img">
+        </div>
+        <div class="rank-six">
+          <img src="assets/Rank - 06.png" class="rank-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="section-three">
+      <h2 class="section-title">Trending now &gt;</h2>
+      <div class="cards">
+        <img src="assets/section 3.1.png" class="card">
+        <img src="assets/section 3.2.png" class="card">
+        <img src="assets/section 3.3.png" class="card">
+        <img src="assets/section 3.4.png" class="card">
+        <img src="assets/section 3.5.png" class="card">
+      </div>
+    </div>
+
+    <div class="section-four">
+      <h2 class="section-title">Sci-fi shows &gt;</h2>
+      <div class="cards">
+        <img src="assets/section 4.1.png" class="card">
+        <img src="assets/section 4.2.png" class="card">
+        <img src="assets/section 4.3.png" class="card">
+        <img src="assets/section 4.4.png" class="card">
+        <img src="assets/section 4.5.png" class="card">
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-section">
+    <div class="social-icons">
+      <img src="assets/facebook.png" class="social-icon">
+      <img src="assets/instagram.png" class="social-icon">
+      <img src="assets/twitter.png" class="social-icon">
+      <img src="assets/youtube.png" class="social-icon">
+    </div>
+    <div class="footer-links">
+      <a href="#">Seslendirme ve Alt Yazı</a>
+      <a href="#">Sesli Betimleme</a>
+      <a href="#">Yardım Merkezi</a>
+      <a href="#">Hediye Kartları</a>
+      <a href="#">Medya Merkezi</a>
+      <a href="#">Yatırımcı İlişkileri</a>
+      <a href="#">İş İmkanları</a>
+      <a href="#">Kullanım Koşulları</a>
+      <a href="#">Gizlilik</a>
+      <a href="#">Yasal Hükümler</a>
+      <a href="#">Çerez Tercihleri</a>
+      <a href="#">Kurumsal Bilgiler</a>
+      <a href="#">Bize Ulaşın</a>
+    </div>
+    <button class="service-btn">Hizmet Kodu</button>
+    <div class="copyright">© 1997-2021 Netflix, Inc. {i-062d573a0ee099242}</div>
+  </div>
+</body>
+</html>

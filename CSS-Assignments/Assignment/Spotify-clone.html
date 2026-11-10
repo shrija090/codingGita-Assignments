@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Clone</title>
+
+    <style>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+.container {
+    display: flex;
+    height: calc(100vh - 112px);
+}
+
+
+
+
+.sidebar {
+    width: 228px;
+    background-color: black;
+    padding: 20px 15px;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.logo span {
+    font-size: 32px;
+}
+
+.sidebar a {
+    display: block;
+    color: #b3b3b3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 8px;
+}
+
+.sidebar a:hover {
+    color: white;
+}
+
+.sidebar h3 {
+    font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+}
+
+.sidebar .playlist-link {
+    padding: 8px;
+}
+
+.install {
+    margin-top: 35px;
+}
+
+
+
+
+.main {
+    flex: 1;
+    background: linear-gradient(#242424, #121212 65%);
+    padding: 15px 30px;
+    overflow-y: auto;
+}
+
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.arrows {
+    display: flex;
+    gap: 15px;
+}
+
+.arrows button {
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.profile {
+    background-color: black;
+    padding: 7px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+
+
+.main h1 {
+    font-size: 28px;
+    margin-bottom: 22px;
+}
+
+
+
+
+.playlists {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px 22px;
+    margin-bottom: 38px;
+}
+
+.playlist {
+    display: flex;
+    align-items: center;
+    background-color: #303030;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 76px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.playlist img {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+}
+
+.playlist p {
+    padding: 12px;
+}
+
+.heart {
+    width: 76px;
+    height: 76px;
+    background: linear-gradient(135deg, #5100ff, #c4d6d8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+
+
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.heading h2 {
+    font-size: 21px;
+}
+
+.heading a {
+    color: #b3b3b3;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+.shows {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background-color: #181818;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: #282828;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 15px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #a7a7a7;
+    font-size: 12px;
+}
+
+
+
+
+.player {
+    position: fixed;
+    bottom: 14px;
+    left: 0;
+    width: 100%;
+    height: 96px;
+    background-color: #181818;
+    border-top: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+
+
+
+.song {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 25%;
+}
+
+.song img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+}
+
+.song h4 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.song p {
+    color: #aaa;
+    font-size: 11px;
+}
+
+.like {
+    color: #1ed760;
+    font-size: 5px;
+}
+
+
+
+
+.controls {
+    width: 50%;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 12px;
+}
+
+.buttons span {
+    cursor: pointer;
+    font-size: 17px;
+    color: #b3b3b3;
+}
+
+.buttons .play {
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    font-size: 10px;
+    color: #aaa;
+}
+
+.line {
+    width: 65%;
+    height: 4px;
+    background-color: #555;
+    border-radius: 10px;
+}
+
+.line span {
+    display: block;
+    width: 82%;
+    height: 4px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+
+
+.volume {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    color: #b3b3b3;
+    font-size: 17px;
+}
+
+.volume-line {
+    width: 90px;
+    height: 4px;
+    background-color: #aaa;
+    border-radius: 10px;
+}
+
+
+
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 14px;
+    background-color: #1ed760;
+    color: black;
+    font-size: 11px;
+    text-align: right;
+    padding-right: 15px;
+}
+
+
+
+
+@media (max-width: 1000px) {
+
+    .playlists {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shows {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        width: 80px;
+        padding: 15px 8px;
+    }
+
+    .sidebar a {
+        font-size: 11px;
+        text-align: center;
+    }
+
+    .sidebar h3,
+    .playlist-link,
+    .install {
+        display: none;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .main {
+        padding: 15px;
+    }
+
+    .playlists {
+        grid-template-columns: 1fr;
+    }
+
+    .shows {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .song {
+        width: 35%;
+    }
+
+    .controls {
+        width: 60%;
+    }
+
+    .volume {
+        display: none;
+    }
+
+}
+
+    </style>
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+  
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Spotify%20logo.png?raw=true" width="150px">
+        </div>
+
+        <a href=""><img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Home.png?raw=true" width="20px" height="20px"> Home</a>
+        <a href=""><img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Search.png?raw=true" width="20px" height="20px"> Search</a>
+        <a href=""> <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Your%20library.png?raw=true" width="20px" height="20px" alt="">  Your Library</a>
+
+        <br>
+
+        <a href=""> <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Create.png?raw=true" width="20px" height="20px" alt=""> Create Playlist</a>
+        <a href=""><img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Liked.png?raw=true" width="20px" height="20px" alt=""> Liked Songs</a>
+        <a href=""><img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/your%20episodes.png?raw=true" width="20px" height="20px" alt=""> Your Episodes</a>
+
+
+        <h3>FAV</h3>
+
+        <a class="playlist-link" href="">Daily Mix 1</a>
+        <a class="playlist-link" href="">Discover Weekly</a>
+        <a class="playlist-link" href="">Malayalam</a>
+        <a class="playlist-link" href="">Dance / Electronix Mix</a>
+        <a class="playlist-link" href="">EDM / Popular</a>
+
+        <div class="install">
+            <a href=""><img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/grommet-icons_install-option.png?raw=true" width="15px" height="15px" alt=""> Install App</a>
+        </div>
+
+    </div>
+
+
+
+    
+
+    <div class="main">
+
+
+       
+
+        <div class="navbar">
+
+            <div class="arrows">
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/top%20arrow%20navigation.png?raw=true" width="100px" height="50px">
+            </div>
+
+            <div class="profile">
+                 <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/User.png?raw=true " width="100px" height="30px">     
+            </div>
+
+        </div>
+
+
+
+     
+
+        <h1>Good morning</h1>
+
+
+       
+
+        <div class="playlists">
+
+
+            <div class="playlist">
+
+                <div class="heart">♥</div>
+
+                <p>Liked Songs</p>
+
+            </div>
+
+
+            <div class="playlist">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image4.png?raw=true
+                ">
+
+                <p>Neffex Playlist</p>
+
+            </div>
+
+
+            <div class="playlist">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image3.png?raw=true">
+
+                <p>K/DA</p>
+
+            </div>
+
+
+            <div class="playlist">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image1.png?raw=true">
+
+                <p>Liked Songs</p>
+
+            </div>
+
+
+            <div class="playlist">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image2.png?raw=true">
+
+
+                <p>Dance / Electronic Mix</p>
+
+            </div>
+
+
+        </div>
+
+
+
+       
+
+        <div class="heading">
+
+            <h2>Shows you might like</h2>
+
+            <a href="">SEE ALL</a>
+
+        </div>
+
+
+
+      
+
+        <div class="shows">
+
+
+            <div class="card">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image9.png?raw=true">
+
+                <h3>Weekly Motivatio...</h3>
+
+                <p>Ben Ina Scott</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image8.png?raw=true">
+
+                <h3>MEDITATION SELF</h3>
+
+                <p>Husn Hussain Ameen</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image7.png?raw=true">
+
+                <h3>Words beyond act...</h3>
+
+                <p>Podcast</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image6.png?raw=true">
+
+                <h3>The Alexa Show</h3>
+
+                <p>Adriana Tom</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image5.png?raw=true">
+
+                <h3>The Stories of Ma...</h3>
+
+                <p>Lewis</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image10.png?raw=true">
+
+                <h3>Motivation Daily b...</h3>
+
+                <p>Georgina Martha</p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="player">
+
+
+  
+
+    <div class="song">
+
+        <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/image4.png?raw=true">
+
+        <div>
+
+            <h4>Dreaming On</h4>
+
+            <p>NEFFEX</p>
+
+        </div>
+
+        <div class="like">
+            
+         </div>
+
+    </div>
+
+
+
+   
+
+    <div class="controls">
+
+        <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Music%20Player%20Options.png?raw=true" width="700px" height="80px">
+
+    </div>
+
+
+
+
+    <div class="volume">
+
+      <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/10.spotify-clone/assets/Right%20options.png?raw=true" width="250px" height="30px">
+
+    </div>
+
+
+</div>
+
+
+
+
+<div class="bottom">
+    
+</div>
+
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Clone</title>
+
+    <style>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #dceff2;
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+.navbar {
+    background-color: #131921;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    gap: 15px;
+}
+
+
+
+
+.address {
+    font-size: 13px;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    height: 38px;
+}
+
+.search-bar select {
+    width: 45px;
+    border: none;
+    padding: 5px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.search-bar button {
+    width: 45px;
+    background-color: #febd69;
+    border: none;
+   
+    
+}
+
+.language,
+.account,
+.orders,
+.cart {
+    font-size: 13px;
+    text-align: center;
+}
+
+
+
+
+.menu {
+    background-color: #232f3e;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px;
+    font-size: 14px;
+    overflow-x: auto;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+   
+}
+
+
+
+
+.banner {
+    width: 100%;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.banner-image {
+    position: relative;
+}
+
+.banner-image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #dceff2
+    );
+
+    pointer-events: none;
+}
+
+
+
+.cards {
+    z-index: 2;
+}
+
+
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    padding: 15px 25px;
+
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+}
+
+.card {
+    background-color: white;
+    padding: 18px;
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+
+
+.image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 95px;
+    object-fit: contain;
+}
+
+.image-container p {
+    font-size: 12px;
+    color: #555;
+    margin-top: 4px;
+}
+
+
+
+
+.big-image {
+    width: 100%;
+    height: 250px;
+
+    object-fit: contain;
+}
+
+
+
+
+.card a {
+    display: inline-block;
+    color: #007185;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+
+
+
+.right-card {
+    background-color: transparent;
+}
+
+.signin {
+    background-color: white;
+    padding: 18px;
+}
+
+.signin h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.signin button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffd814;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+
+.laptop {
+    background-color: #a9edc6;
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.laptop h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.laptop img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+
+
+
+<div class="navbar">
+
+    <div class="logo">
+        <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/logo.png?raw=true" alt="">
+    </div>
+
+    <div class="address">
+        Hello
+        <br>
+        Select your address
+    </div>
+
+    <div class="search-bar">
+
+        <select>
+            <option>All</option>
+        </select>
+
+        <input type="text" placeholder="Search Amazon.in">
+
+        <button>
+            <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/search%20icon.png?raw=true" alt="Search">
+        </button>
+    </div>
+
+    <div class="language">
+        <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/indian%20flag.png?raw=true" alt="India Flag"> IN EN
+    </div>
+
+    <div class="account">
+        Hello, Sign in
+        <br>
+        Account & Lists
+    </div>
+
+    <div class="orders">
+        Returns
+        <br>
+        & Orders
+    </div>
+
+    <div class="cart">
+         <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/cart%20icon.png?raw=true">
+    </div>
+
+</div>
+
+
+
+
+<div class="menu">
+    
+
+    <a href=""> All</a>
+    <a href="">Best Sellers</a>
+    <a href="">Mobiles</a>
+    <a href="">Customer Service</a>
+    <a href="">Today's Deals</a>
+    <a href="">Fashion</a>
+    <a href="">Electronics</a>
+    <a href="">Books</a>
+    <a href="">Prime</a>
+    <a href="">New Releases</a>
+    <a href="">Home & Kitchen</a>
+    <a href="">Amazon Pay</a>
+
+</div>
+
+
+
+
+<div class="banner">
+
+    <div class="banner-image">
+
+        <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/background%20picture.png?raw=true" alt="Banner Image">
+
+    </div>
+
+
+  
+
+    <div class="cards">
+
+
+
+        <div class="card">
+
+            <h2>Upgrade your home | Amazon Brands & more</h2>
+
+            <div class="image-container">
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2017.png?raw=true" alt="TV">
+                    <p>Smart LED TVs</p>
+                </div>
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2018.png?raw=true" alt="Appliances">
+                    <p>Appliances</p>
+                </div>
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2019.png?raw=true" alt="Furniture">
+                    <p>kitchen products</p>
+                </div>
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2020.png?raw=true" alt="Kitchen">
+                    <p>furniture</p>
+                </div>
+
+            </div>
+
+            <a href="">Shop now</a>
+
+        </div>
+
+
+
+        
+
+        <div class="card">
+
+            <h2>Revamp your home in style</h2>
+
+            <div class="image-container">
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2021.png?raw=true" alt="Bedsheets">
+                    <p>Bedsheets, curtains & more</p>
+                </div>
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2024.png?raw=true" alt="home decoration">
+                    <p>Home decoration</p>
+                </div>
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2022.png?raw=true" alt="home storage">
+                    <p>Home storage</p>
+                </div>
+
+                <div>
+                    <img src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2021.png?raw=true" alt="home lighting">
+                    <p>Home lighting</p>
+                </div>
+
+            </div>
+
+            <a href="">Explore all</a>
+
+        </div>
+
+
+
+       
+
+        <div class="card">
+
+            <h2>Up to 70% off | Clearance store</h2>
+
+            <img class="big-image"src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2025.png?raw=true"alt="Laptop">
+
+            <a href="">See more</a>
+
+        </div>
+
+
+
+
+        <div class="right-card">
+
+            <div class="signin">
+
+                <h2>Sign in for your best experience</h2>
+
+                <button>Sign in securely</button>
+
+            </div>
+
+
+            <div class="laptop">
+
+                <h2>
+                    LAPTOPS
+                    <br>
+                    FROM TOP BRANDS
+                </h2>
+
+                <img
+                src="https://github.com/codinggita/CGxSU_Semester_1/blob/main/Semester_1/html_css_js(sem_01)/CSS/00.assignment/02.level_2/09.amazon-clone/assets/image%2026.png?raw=true"
+                alt="Laptop">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
